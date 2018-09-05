@@ -3860,7 +3860,181 @@ def lineBot(op):
                 line.leaveRoom(op.param1)              
         if op.type == 24:
             if settings['leaveRoom'] == True:
-                line.leaveRoom(op.param1)             
+                line.leaveRoom(op.param1)             #==============================================================================#
+        if op.type == 19:
+            print ("[ 19 ] บอทระบบคิก")
+            try:
+                if op.param3 in lineMID:
+                    if op.param2 in kiMID:
+                        G = ki.getGroup(op.param1)
+#                        ginfo = ki.getGroup(op.param1)
+                        G.preventedJoinByTicket = False
+                        ki.updateGroup(G)
+                        invsend = 0
+                        Ticket = ki.reissueGroupTicket(op.param1)
+                        line.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        G = ki.getGroup(op.param1)
+                        G.preventedJoinByTicket = True
+                        ki.updateGroup(G)
+                        G.preventedJoinByTicket(G)
+                        ki.updateGroup(G)
+                    else:
+                        G = ki.getGroup(op.param1)
+#                        ginfo = ais.getGroup(op.param1)
+                        ki.kickoutFromGroup(op.param1,[op.param2])
+                        G.preventedJoinByTicket = False
+                        ki.updateGroup(G)
+                        invsend = 0
+                        Ticket = ki.reissueGroupTicket(op.param1)
+                        line.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        G = ki.getGroup(op.param1)
+                        G.preventedJoinByTicket = True
+                        ki.updateGroup(G)
+                        G.preventedJoinByTicket(G)
+                        ki.updateGroup(G)
+                        settings["blacklist"][op.param2] = True
+#------- ban-nadya ----------------------------------------------------------------------[kiMID ki2MID]
+                elif op.param3 in kiMID:
+                    if op.param2 in lineMID:
+                        G = line.getGroup(op.param1)
+                        G.preventedJoinByTicket = False
+                        line.updateGroup(G)
+                        invsend = 0
+                        Ticket = line.reissueGroupTicket(op.param1)
+                        line.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        G = line.getGroup(op.param1)
+                        G.preventedJoinByTicket = True
+                        line.updateGroup(G)
+                        G.preventedJoinByTicket(G)
+                        line.updateGroup(G)
+                    else:
+                        G = line.getGroup(op.param1)
+#                        ginfo = gye.getGroup(op.param1)
+                        line.kickoutFromGroup(op.param1,[op.param2])
+                        G.preventedJoinByTicket = False
+                        line.updateGroup(G)
+                        invsend = 0
+                        Ticket = line.reissueGroupTicket(op.param1)
+                        line.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        G = line.getGroup(op.param1)
+                        G.preventedJoinByTicket = True
+                        line.updateGroup(G)
+                        G.preventedJoinByTicket(G)
+                        line.updateGroup(G)
+                        settings["blacklist"][op.param2] = True              
+#------- nadya - can ----------------------------------------------------------------------[kiMID ki2MID]
+                elif op.param3 in lineMID:
+                    if op.param2 in kkMID:
+                        G = kk.getGroup(op.param1)
+                        G.preventedJoinByTicket = False
+                        kk.updateGroup(G)
+                        invsend = 0
+                        Ticket = kk.reissueGroupTicket(op.param1)
+                        line.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        G = kk.getGroup(op.param1)
+                        G.preventedJoinByTicket = True
+                        kk.updateGroup(G)
+                        G.preventedJoinByTicket(G)
+                        kk.updateGroup(G)
+                    else:
+                        G = kk.getGroup(op.param1)
+#                        ginfo = gye.getGroup(op.param1)
+                        kk.kickoutFromGroup(op.param1,[op.param2])
+                        G.preventedJoinByTicket = False
+                        kk.updateGroup(G)
+                        invsend = 0
+                        Ticket = kk.reissueGroupTicket(op.param1)
+                        line.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        G = kk.getGroup(op.param1)
+                        G.preventedJoinByTicket = True
+                        kk.updateGroup(G)
+                        G.preventedJoinByTicket(G)
+                        kk.updateGroup(G)
+                        settings["blacklist"][op.param2] = True                                    
+#------- can - ban ----------------------------------------------------------------------[kiMID ki2MID]
+                elif op.param3 in kkMID:
+                    if op.param2 in kiMID:
+                        G = ki.getGroup(op.param1)
+                        G.preventedJoinByTicket = False
+                        ki.updateGroup(G)
+                        invsend = 0
+                        Ticket = ki.reissueGroupTicket(op.param1)
+                        line.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        G = ki.getGroup(op.param1)
+                        G.preventedJoinByTicket = True
+                        ki.updateGroup(G)
+                        G.preventedJoinByTicket(G)
+                        ki.updateGroup(G)
+                    else:
+                        G = ki.getGroup(op.param1)
+#                        ginfo = gye.getGroup(op.param1)
+                        ki.kickoutFromGroup(op.param1,[op.param2])
+                        G.preventedJoinByTicket = False
+                        ki.updateGroup(G)
+                        invsend = 0
+                        Ticket = ki.reissueGroupTicket(op.param1)
+                        line.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        G = ki.getGroup(op.param1)
+                        G.preventedJoinByTicket = True
+                        ki.updateGroup(G)
+                        G.preventedJoinByTicket(G)
+                        ki.updateGroup(G)
+                        settings["blacklist"][op.param2] = True      
+ #------- can - nadya ----------------------------------------------------------------------[kiMID ki2MID]
+                elif op.param3 in kkMID:
+                    if op.param2 in lineMID:
+                        G = line.getGroup(op.param1)
+                        G.preventedJoinByTicket = False
+                        line.updateGroup(G)
+                        invsend = 0
+                        Ticket = line.reissueGroupTicket(op.param1)
+                        line.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        G = line.getGroup(op.param1)
+                        G.preventedJoinByTicket = True
+                        line.updateGroup(G)
+                        G.preventedJoinByTicket(G)
+                        line.updateGroup(G)
+                    else:
+                        G = line.getGroup(op.param1)
+#                        ginfo = gye.getGroup(op.param1)
+                        line.kickoutFromGroup(op.param1,[op.param2])
+                        G.preventedJoinByTicket = False
+                        line.updateGroup(G)
+                        invsend = 0
+                        Ticket = line.reissueGroupTicket(op.param1)
+                        line.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        G = line.getGroup(op.param1)
+                        G.preventedJoinByTicket = True
 #==============================================================================#
 #==============================================================================#
         if op.type == 17:
